@@ -1,0 +1,13 @@
+.container {
+    border: 1px solid indigo;
+    margin-bottom: 4px;
+}
+
+.title {
+    font-style: italic;
+    margin-bottom: 7px;
+}
+
+.metadata {
+    margin-top: 7px;
+}
