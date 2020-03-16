@@ -13,6 +13,8 @@ export class FeedLineComponent implements OnInit {
     constructor(private feedService: FeedService) { }
 
     ngOnInit(): void {
-        this.items = this.feedService.get();
+        this.feedService.get().subscribe(fItems => {
+            this.items = fItems;
+        });
     }
 }
