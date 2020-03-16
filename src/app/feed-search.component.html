@@ -1,0 +1,10 @@
+<header><h2>Find your feed</h2></header>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+    <ul>
+        <li>
+            <label for="searchTerms">Criteria</label>
+            <input type="text" name="searchTerms" id="searchTerms" formControlName="searchTerms" />
+        </li>
+    </ul>
+    <button type="submit">Search</button>
+</form>

@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { FeedLineComponent } from './feed-line.component';
 import { FeedItemComponent } from './feed-item.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FeedSearchComponent } from './feed-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FeedSearchComponent,
     FeedLineComponent,
     FeedItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FeedItem, FeedService } from './feed-service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'feed-line',
@@ -8,13 +9,20 @@ import { FeedItem, FeedService } from './feed-service';
 })
 export class FeedLineComponent implements OnInit {
 
+    searchTerms: string;
     items: FeedItem[];
 
-    constructor(private feedService: FeedService) { }
+    constructor(private feedService: FeedService,
+        private activatedRoute: ActivatedRoute) { }
 
     ngOnInit(): void {
-        this.feedService.get().subscribe(fItems => {
-            this.items = fItems;
+
+        this.activatedRoute.queryParamMap.subscribe(paramMap => {
+            this.searchTerms = paramMap.get('searchTerms');
+
+            this.feedService.get().subscribe(fItems => {
+                this.items = fItems.filter(item => item.description.includes(this.searchTerms));
+            });
         });
     }
 }
