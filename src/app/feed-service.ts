@@ -12,7 +12,7 @@ export class FeedService {
 
     get(source?: string) {
         
-        return this.httpClient.get('http://feeds.dzone.com/home', {responseType: 'text'}).pipe(map(response => {
+        return this.httpClient.get('https://feeds.dzone.com/home', {responseType: 'text'}).pipe(map(response => {
 
             let fItems: FeedItem[] = [];
             parseString(response, (error, result) => {
